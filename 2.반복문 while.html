@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //while문
+      let a = 0;
+      while (a < 10) {
+        document.write(a);
+        a++;
+      }
+
+      //값을 받아와서 반복하는 while
+      let word = prompt("나무를 영어로 입력하세요");
+      while (word != "tree") {
+        word = prompt("다시 나무를 영어로 입력하세요");
+      }
+      document.write("맞췄습니다");
+
+      let b = 0;
+      //do while문
+      do {
+        document.write(b);
+        b++;
+      } while (b < 10);
+    </script>
+  </body>
+</html>

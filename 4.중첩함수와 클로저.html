@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 중첩함수 > 함수 안에 함수가 들어가있는 형태
+      function f() {
+        // 감싸고 있는 함수
+        let value = 123;
+        // 함수 안에있는 함수는 호이스팅 되지않고 함수 안에서만 사용할수 있다
+        function g() {
+          // 함수안에 생성된 함수
+          alert(value);
+        }
+        g(); // f() 함수안에서 호출
+      }
+
+      // 중첩함수를 실행하기위해 감싸고 있는 함수 호출
+      f();
+      // g(); // 함수안에 있는 함수는 호출할수 없다.
+
+      function add(a, b) {
+        let sum = a + b;
+        function printNum() {
+          document.write(sum);
+        }
+        printNum();
+      }
+      add(5, 6);
+
+      // 클로저 함수 - 중첩함수의 하나로 외부 변수에 접근하는 함수
+      function count() {
+        // 감싸고 있는 함수
+        let count = 0;
+        return function () {
+          // 클로저 함수
+          return (count += 1);
+        };
+      }
+      // 외부로 호출하기위함 함수 - count() 함수 한 번 호출 !
+      let startCount = count();
+
+      //startCount로 클로저 함수 호출
+      document.write(startCount());
+
+      // 클로저함수가 없는 함수 - 호출할 때 마다 초기화
+      function noCount() {
+        let count = 0;
+        return (count += 1);
+      }
+
+      // 입력받은 숫자값을 더해주는 클로저 함수
+      function sumClosures() {
+        let sum = 0; // 변수 초기화
+        return function (num) {
+          // 클로저함수
+          return (sum += num);
+        };
+      }
+      // sumClosures함수 실행,
+      // return에 넣어준 클로저 함수 startSum에 할당
+      let startSum = sumClosures();
+      document.write(`<p> ${startSum(3)} </p>`);
+      document.write(`<p> ${startSum(5)} </p>`);
+
+      // 클로저 함수를 이용하여,
+      // 넣은 값을 계속해서 곱하는 함수를 만드세요
+      // multiClosuers() / startMulti
+      // 클로저함수를 화살표 함수로 작성
+      function multiClosuers() {
+        let multi = 1;
+        return (num) => (multi *= num);
+      }
+      let startMulti = multiClosuers();
+      document.write(startMulti(3));
+      document.write(startMulti(2));
+    </script>
+  </body>
+</html>

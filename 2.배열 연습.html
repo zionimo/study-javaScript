@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      for (let i = 2; i < 10; i++) {
+        for (let j = 1; j < 10; j++) {
+          document.write(i + "*" + j + "=" + i * j, "<br>");
+        }
+        document.write("<br>");
+      }
+
+      let scores = [60, 70, 80, 90, 40, 70, 70];
+      for (score of scores) {
+        sum += score;
+      }
+      document.write(sum/scores.length);
+
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 == 1) {
+          let sum = 0;
+          sum += i;
+          document.write(i, "<br>");
+        }
+      }
+
+      for (let i = 1; i <= 100; i++) {
+        if(i%3==0) {
+          if (let j = 1; j <= 100; j++) {
+            if(j%5==0) {
+              document.write(i+j)
+            }
+        }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt("10+10?");
+      while (num != "20") {
+        num = prompt("10+10?");
+      }
+      alert("정답입니다");
+
+      // 0이 입력될때까지 숫자를 다 더하는 while문
+      let number = prompt("0을 입력하면 입력한 모든 수를 더합니다");
+      let sum = 0;
+      while (number != "0") {
+        if (!isNaN(Number(number))) {
+          sum += Number(number);
+        }
+        number = prompt("0을 입력하면 입력한 모든 수를 더합니다");
+      }
+      alert(sum);
+
+      // do while문 실습
+      let pw = "green";
+      let count = 0;
+      let user;
+      do {
+        user = prompt("비밀번호를 입력하세요");
+        count++;
+      } while (pw != user && count < 5);
+      alert(count + "회 시도하였습니다");
+
+      // break, continue
+      let num1 = 1;
+      while (true) {
+        if (num1 > 10) {
+          break;
+        }
+        document.write(num1);
+        num1++;
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        if (i % 3 == 0) {
+          continue;
+        }
+        document.write(`<p>${i}</p>`);
+      }
+    </script>
+  </body>
+</html>
