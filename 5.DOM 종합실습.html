@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>수정하기 전 제목입니다</h1>
+
+    <div>
+      <ul>
+        <li>첫번째 내용입니다</li>
+        <li>두번째 내용입니다</li>
+        <li>세번째 내용입니다</li>
+        <li>네번째 내용입니다</li>
+      </ul>
+    </div>
+
+    <div>
+      <ol>
+        <li>첫번째 내용입니다</li>
+        <li>두번째 내용입니다</li>
+        <li>세번째 내용입니다</li>
+        <li>네번째 내용입니다</li>
+      </ol>
+    </div>
+
+    <div class="main">
+      <p><span>빈 공간</span>입니다</p>
+    </div>
+
+    <div class="footer">
+      <p>푸터영역 입니다</p>
+    </div>
+
+    <script>
+      const h1Tag = document.querySelector("h1");
+      h1Tag.textContent = "DOM을 이용한 수정";
+      h1Tag.style.color = "blue";
+      // setAttribute를 이용해서 수정하면 style의 전체값을 수정
+      h1Tag.setAttribute("style", "color:blue; background-color: lightgray");
+
+      const ulTag = document.querySelector("ul");
+      ulTag.removeChild(ulTag.firstElementChild);
+      const li = document.createElement("li");
+      li.innerHTML = "새로추가한 노드입니다";
+      ulTag.append(li);
+
+      const olTag = document.querySelector("ol");
+      // first와 last를 이용한 자식찾기
+      olTag.firstElementChild.nextSibling.remove();
+      // children 배열을 통한 자식찾기
+      olTag.children[2].remove();
+      olTag.firstElementChild.innerHTML = "내용을 바꾸었습니다";
+
+      const spanTag = document.querySelector("p span");
+      spanTag.style.color = "red";
+
+      const main = document.querySelector(".main");
+      main.append(spanTag.parentElement.cloneNode(true));
+      main.append(spanTag.parentElement.cloneNode(true));
+    </script>
+  </body>
+</html>

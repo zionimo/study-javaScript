@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">처음 제목</h1>
+    <a href="#">링크</a>
+    <p class="text">클래스가 적용된 p태그</p>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+
+      <form id="form">
+        <label for="">이름</label>
+        <input type="text" id="name" />
+      </form>
+    </ul>
+    <script>
+      // DOM 선택 메소드
+      // document.querySelector()
+
+      // DOM 생성 메소드
+      // return을 통해서 요소를 생성, 변수에 할당해서 사용할 수 있다.
+      // 생성만 하고 HTML문서에 추가하지는 않는다.
+      document.createElement("h1");
+
+      // DOM 요소 속성 변경
+      // 문서객체에 접근해서 속성을 바꿀 수 있다
+      let liTag = document.querySelectorAll("ul li"); // 요소선택
+      // 여러개의 요소는 배열에 들어가 있으므로 한번에 접근하기 위해 for문 사용
+      for (let i = 0; i < liTag.length; i++) {
+        liTag[i].innerHTML = "요소의 내용을 한번에 수정"; //요소 속성 수정
+      }
+    </script>
+  </body>
+</html>

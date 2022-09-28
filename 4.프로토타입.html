@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 프로토 타입은
+      // 미리 만들어 둔 내용을 사용하기 위해 속성과 메소드를 복제해서 들
+
+      // 리터럴 객체에서 프로토 타입
+      let rabbit = {
+        color: "흰색",
+        run: function () {
+          document.write("<p>달립니다</p>");
+        },
+      };
+      // 리터럴 객체의 포로토타입은 object이다.
+
+      // 배열의 프로토타입은 array이다.
+      // 배열에 바로 메소드가 지정되는 것이 아니라
+      // 프로토타입에 있는 메소드를 들고 온다.
+      function Person(name) {
+        this.name = name;
+        this.intro = function () {
+          document.write(`<p>${name}입니다</p>`);
+        };
+      }
+
+      //생성자함수의 prototype에 메소드/속성을 추가해줄 수 있다.
+      Person.prototype.firstName = function () {
+        return this.name.charAt(0);
+      };
+
+      let kim = new Person("김길동");
+      let park = new Person("박길동");
+      // 객체에 들어가있는 메소드는 객체를 생성할 때 마다 만들지만
+      // prototype은 하나를 만들어두고 접근해서 사용한다.
+
+      // prototype은 함수마다 하나씩 가지고 있는 것
+      // __proto__ 는 객체마다 prototype에 접근하기 위해 가지고 있는 것
+      /* __proto__는 prototype안에 있다 */
+
+      function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      // 프로토타입으로 메소드와 속성
+      Dog.prototype.family = "진돗개";
+      // family 속성 추가 : "진돗개"
+
+      // familyPrint 메소드 추가 : family 속성 return
+      Dog.prototype.familyPrint = function () {
+        return this.family;
+      };
+
+      let myPuppy = new Dog("마루", 1);
+
+      //이미 객체가 있을 때 객체의 getter 속성 추가하는 방법
+      object.defineProperty(mypuppy, "amerianAge", {
+        get: function () {
+          return this.age - 1;
+        },
+      });
+
+      // 이미 객체가 있을 때 객체의 setter 속성 추가하는 방법
+      object.defineProperty(mypuppy, "changeAge", {
+        set: function (n) {
+          this.age = this.age + n;
+        },
+      });
+    </script>
+  </body>
+</html>
