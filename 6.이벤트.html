@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p onclick="alert('문자열을 클릭했어요')">클릭해주세요</p>
+    <p onclick="testFunc()">사용자 함수가 실행됩니다. 클릭해주세요</p>
+    <p>
+      HTML 이벤트 속성으로 이벤트핸들러 함수를 넣어줄 때, "함수이름()" 형태로 넣어서 사용할 수 있다. 이때, 인수값을 넣어줄 때 문자열일 경우 ''를
+      사용하여 ""가 겹치지 않게 주의한다.
+    </p>
+    <input type="text" id="text" value="입력값입니다" />
+    <input type="checkbox" id="checkbox" checked />체크박스입니다
+
+    <p>=====================</p>
+
+    <p>값을 넣어주세요</p>
+    <input type="text" id="inputtext" onchange="input()" onfocus="changeBackgound()" onblur="removeBackgound()" />
+    <button onclick="input()" id="button">확인</button>
+    <p id="textshow"></p>
+
+    <script>
+      // confirm을 사용하여 내용은 '확인하시겠습니까?'
+      // 예'일 경우 : alert창에 '확인'을 출력
+      // '아니오'일 경우 : '취소했습니다'를 콘솔에 출력
+      function testFunc() {
+        if (confirm("확인하시겠습니까?")) {
+          alert("확인");
+        } else {
+          console.log("취소했습니다");
+        }
+      }
+
+      // onload 이벤트
+      window.onload = function () {
+        console.log("윈도우가 로드되었습니다");
+      };
+
+      function input() {
+        const text = document.querySelector("#inputtext");
+        let textValue = text.value;
+        const pTag = document.querySelector("#textshow");
+        pTag.innerHTML = textValue;
+      }
+
+      function changeBackgound() {
+        const input = document.querySelector("#inputtext");
+        input.style.backgroundColor = "gray";
+      }
+
+      function removeBackgound() {
+        const input = document.querySelector("#inputtext");
+        input.style.backgroundColor = "white";
+      }
+    </script>
+  </body>
+</html>
